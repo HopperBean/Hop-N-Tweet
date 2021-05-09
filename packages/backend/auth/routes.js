@@ -1,8 +1,10 @@
-import * as express from "express";
+const express = require('express')
 const mongoose = require("mongoose");
-import * as bcrypt from "bcrypt";
-import createError from "http-errors";
-import { create } from "ts-node";
+const bcrypt = require ("bcrypt")
+// import * as bcrypt from "bcrypt";
+const createError = require ("http-errors")
+// import createError from "http-errors";
+// import { create } from "ts-node";
 const router = express.Router();
 
 router.post("/login", async (req, res, next) => {

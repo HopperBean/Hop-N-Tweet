@@ -1,5 +1,6 @@
-import { Schema, Types } from "mongoose";
-import * as mongoose from "mongoose";
+const { Schema, Types } = require("mongoose")
+// import * as mongoose from "mongoose";
+const mongoose = require ("mongoose")
 
 const User = new Schema({
   handle: String,
