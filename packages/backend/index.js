@@ -8,6 +8,7 @@ const requireAll = require("require-all");
 const cors = require("cors");
 const session = require("express-session");
 const { mongoConnectionString } = require("./constants");
+require("dotenv").config();
 const port = process.env.PORT || 3000;
 
 const app = express();
