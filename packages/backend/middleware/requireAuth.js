@@ -1,9 +1,10 @@
-import createError from "http-errors";
-import { RequestHandler } from "express";
+const createError = require("http-errors");
+// import createError from "http-errors";
+// import { RequestHandler } from "express";
 
 const mongoose = require("mongoose");
 
-const requireAuth: RequestHandler = async (req, res, next) => {
+const requireAuth = async (req, res, next) => {
   const user =
     // @ts-ignore
     req.session.userId &&
@@ -19,4 +20,4 @@ const requireAuth: RequestHandler = async (req, res, next) => {
   next();
 };
 
-export default requireAuth;
+module.exports = requireAuth;
