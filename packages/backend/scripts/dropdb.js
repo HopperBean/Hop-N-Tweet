@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 const { mongoConnectionString } = require("../constants");
+require("dotenv").config();
 /* Connect to the DB */
 mongoose.connect(
   mongoConnectionString || process.env.mongoConnectionString,
