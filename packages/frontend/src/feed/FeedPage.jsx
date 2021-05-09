@@ -11,8 +11,8 @@ import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { getFeed, submitTweet } from "./feedApi";
 
 export default function FeedPage() {
-  const [tweets, setTweets] = useState<Tweet[]>([]);
-  const [tweetInputValue, setTweetInputValue] = useState<String>("");
+  const [tweets, setTweets] = useState([]);
+  const [tweetInputValue, setTweetInputValue] = useState("");
 
   useEffect(() => {
     getTweets();
@@ -23,7 +23,7 @@ export default function FeedPage() {
     setTweets(tweets);
   }
 
-  async function submit(evt: SyntheticEvent) {
+  async function submit(evt) {
     evt.preventDefault();
 
     const value = tweetInputValue?.trim();

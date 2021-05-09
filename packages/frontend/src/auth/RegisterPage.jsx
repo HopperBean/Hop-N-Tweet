@@ -7,9 +7,9 @@ import { Link, Redirect } from "react-router-dom";
 export default function LoginPage() {
   const [handle, setHandle] = useState("");
   const [password, setPassword] = useState("");
-  const { state, dispatch } = useContext<ContextType>(StateContext);
+  const { state, dispatch } = useContext(StateContext);
 
-  async function handleSubmit(evt: any) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
 
     try {

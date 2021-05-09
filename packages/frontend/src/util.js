@@ -2,14 +2,14 @@ const root =
   // @ts-ignore
   process.env.NODE_ENV === "production" ? "/" : "http://localhost:3000/";
 
-export function get<T = any>(url: string): Promise<T> {
+export function get(url) {
   return fetch(root + url, {
     credentials: "include",
   }).then((response) => response.json());
 }
 
-export function post<T = any>(url: string, body?: Object): Promise<T> {
-  const opts: RequestInit = {
+export function post(url, body) {
+  const opts = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
