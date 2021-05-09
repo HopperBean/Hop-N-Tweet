@@ -4,11 +4,11 @@ import { checkSession } from "./auth/authApi";
 
 // see https://reactjs.org/docs/hooks-reference.html#usereducer
 
-const initialState: State = {
+const initialState = {
   user: null,
 };
 
-function reducer(state: State, action: Action): State {
+function reducer(state, action) {
   switch (action.type) {
     case "setUser":
       return { ...state, user: action.payload };
@@ -17,17 +17,13 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-export type ContextType = {
-  state: State;
-  dispatch: React.Dispatch<Action>;
-};
 
-export const StateContext = createContext<ContextType>({
+export const StateContext = createContext({
   state: initialState,
   dispatch: () => alert("Initial dispatcher. This should never be called."),
 });
 
-export default function StateProvider(props: any) {
+export default function StateProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
