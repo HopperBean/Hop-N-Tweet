@@ -8,12 +8,15 @@ const requireAll = require("require-all");
 const cors = require("cors");
 const session = require("express-session");
 const { mongoConnectionString } = require("./constants");
+require("dotenv").config();
+const port = process.env.PORT || 3000;
+const db = process.env.mongoConnectionString || mongoConnectionString;
 
 const app = express();
 app.use(express.static("public"));
 
 // connect to the DB
-mongoose.connect(mongoConnectionString, {
+mongoose.connect(db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -49,7 +52,7 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 
-const server = app.listen(3000, () => {
+const server = app.listen(port, () => {
   console.log("Now listening on port:", server.address().port);
 });
 

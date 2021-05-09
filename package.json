@@ -4,6 +4,11 @@
   "main": "index.js",
   "author": "Monarch Wadia <monarch@mintbean.io>",
   "license": "MIT",
+  "engines": {
+    "node": "12.x",
+    "npm": "7.x",
+    "yarn": "1.x"
+  },
   "private": true,
   "workspaces": [
     "packages/*"
@@ -16,5 +21,8 @@
   },
   "devDependencies": {
     "concurrently": "^6.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^9.0.0"
   }
 }
