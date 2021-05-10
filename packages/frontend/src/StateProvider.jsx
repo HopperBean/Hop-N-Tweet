@@ -23,6 +23,7 @@ function reducer(state, action) {
 
 export const StateContext = createContext({
   state: initialState,
+  //can use contextType here instead of the filler function
   dispatch: () => alert("Initial dispatcher. This should never be called."),
 });
 

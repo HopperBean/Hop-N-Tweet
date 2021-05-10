@@ -26,7 +26,9 @@ export default function FeedPage() {
   async function submit(evt) {
     evt.preventDefault();
 
-    const value = tweetInputValue?.trim();
+    //optional chaining syntax
+    //tweetInputValue.?trim()
+    const value = tweetInputValue ? tweetInputValue.trim() : undefined;
 
     if (!value) {
       return;
