@@ -7,6 +7,7 @@ import { Link, Redirect } from "react-router-dom";
 export default function LoginPage() {
   const [handle, setHandle] = useState("");
   const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const { state, dispatch } = useContext(StateContext);
 
@@ -14,7 +15,7 @@ export default function LoginPage() {
     evt.preventDefault();
 
     try {
-      const user = await register(handle,firstName, password);
+      const user = await register(handle,firstName,lastName, password);
       dispatch({
         type: "setUser",
         payload: user,
@@ -63,6 +64,14 @@ export default function LoginPage() {
                   placeholder="firstName"
                   value={firstName}
                   onChange={(evt) => setFirstName(evt.target.value)}
+                />
+              </FormControl>
+              <FormControl fullWidth>
+                <Input
+                  id="lastName"
+                  placeholder="lastName"
+                  value={lastName}
+                  onChange={(evt) => setLastName(evt.target.value)}
                 />
               </FormControl>
               <FormControl fullWidth>
