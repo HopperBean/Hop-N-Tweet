@@ -3,7 +3,7 @@ const { mongoConnectionString } = require("../constants");
 require("dotenv").config();
 /* Connect to the DB */
 mongoose.connect(
-  mongoConnectionString || process.env.mongoConnectionString,
+  "mongodb://localhost/twitterbean",
   function () {
     /* Drop the DB */
     mongoose.connection.db

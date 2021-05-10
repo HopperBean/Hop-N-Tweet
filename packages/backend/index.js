@@ -10,13 +10,13 @@ const session = require("express-session");
 const mongoConnectionString = require("./constants");
 require("dotenv").config();
 const port = process.env.PORT || 3000;
-const db = process.env.mongoConnectionString || mongoConnectionString;
+//const db = process.env.mongoConnectionString || mongoConnectionString;
 
 const app = express();
 app.use(express.static("public"));
 
 // connect to the DB
-mongoose.connect(db, {
+mongoose.connect("mongodb://localhost/twitterbean", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
