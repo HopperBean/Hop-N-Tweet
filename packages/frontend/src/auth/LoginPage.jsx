@@ -2,11 +2,13 @@ import { FormControl, Grid, Input, Box, Typography } from "@material-ui/core";
 import React, { useContext, useState } from "react";
 import { StateContext, ContextType } from "../StateProvider";
 import { login } from "./authApi";
+import AuthError from "./AuthError";
 import { Link, Redirect } from "react-router-dom";
 
 export default function LoginPage() {
   const [handle, setHandle] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   const { state, dispatch } = useContext(StateContext);
 
   async function handleSubmit(evt) {
@@ -19,8 +21,9 @@ export default function LoginPage() {
         payload: user,
       });
     } catch (e) {
-      console.log(e);
-      alert("Failed to login.");
+      // console.log(e);
+      // alert("Failed to login.");
+      setError(true);
     }
   }
 
@@ -70,6 +73,7 @@ export default function LoginPage() {
               </FormControl>
             </form>
             Don't have an account? <Link to="/auth/register">Sign Up</Link>.
+            <AuthError open={error} setOpen={setError} />
           </Grid>
         </Grid>
       </Grid>

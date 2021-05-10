@@ -1,7 +1,12 @@
 import { FormControl, Grid, Input, Box, Typography } from "@material-ui/core";
 import React, { useContext, useState } from "react";
+//NOTE! ContextType is not defined in the StateProvider.jsx - looks like we are supposed to define it on our own?
+//From React docs:
+//The contextType property on a class can be assigned a Context object created by React.createContext(). Using this property lets you consume the nearest current value of that Context type using this.context. You can reference this in any of the lifecycle methods including the render function.
+
 import { StateContext, ContextType } from "../StateProvider";
 import { register } from "./authApi";
+import AuthError from "./AuthError";
 import { Link, Redirect } from "react-router-dom";
 
 export default function LoginPage() {
@@ -9,6 +14,7 @@ export default function LoginPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   const { state, dispatch } = useContext(StateContext);
 
   async function handleSubmit(evt) {
@@ -21,8 +27,9 @@ export default function LoginPage() {
         payload: user,
       });
     } catch (e) {
-      console.log(e);
-      alert("Failed to login.");
+      // console.log(e);
+      // alert("Failed to login.");
+      setError(true);
     }
   }
 
@@ -88,6 +95,7 @@ export default function LoginPage() {
               </FormControl>
             </form>
             Already have an account? <Link to="/auth/login">Sign in</Link>.
+            <AuthError open={error} setOpen={setError} />
           </Grid>
         </Grid>
       </Grid>
