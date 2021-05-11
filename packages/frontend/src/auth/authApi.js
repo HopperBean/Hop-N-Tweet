@@ -4,13 +4,13 @@ export async function login(handle, password) {
   return await post("api/auth/login", { handle, password });
 }
 
-export async function register(
-  handle,
-  firstName,
-  lastName,
-  password
-) {
-  return await post("api/auth/register", { handle, firstName,lastName,password });
+export async function register(handle, firstName, lastName, password) {
+  return await post("api/auth/register", {
+    handle,
+    firstName,
+    lastName,
+    password,
+  });
 }
 
 export async function checkSession() {
