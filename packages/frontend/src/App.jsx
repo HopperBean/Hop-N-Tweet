@@ -19,7 +19,7 @@ export default function App() {
     <StateProvider>
       <AppBar position="static" style={{ marginBottom: 24 }}>
         <Typography variant="h6" style={{ padding: 12 }}>
-          Twitterbean
+          Hop-N-Tweet
         </Typography>
       </AppBar>
       <Router>

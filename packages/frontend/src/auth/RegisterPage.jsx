@@ -43,7 +43,7 @@ export default function LoginPage() {
         <Grid container>
           <Grid item xs={2}></Grid>
           <Grid item xs={10}>
-            <Typography variant="h4">Welcome to Twitterbean!</Typography>
+            <Typography variant="h4">Welcome to Hop-N-Tweet!</Typography>
             <Typography variant="h6">Make new friends!</Typography>
             <Typography variant="h6">Talk about things!</Typography>
             <Typography variant="h6">Be part of a community!</Typography>
