@@ -30,7 +30,13 @@ export default function LoginPage() {
     } catch (e) {
       // console.log(e);
       // alert("Failed to login.");
-      setErrorMsg("This handle is already in use. Please register with another handle.");
+      if (!handle || !firstName || !lastName || !password) {
+        setErrorMsg("Please fill out all fields to create an account.");
+      } else {
+        setErrorMsg(
+          "This handle is already in use. Please register with another handle."
+        );
+      }
       setError(true);
     }
   }

@@ -1,8 +1,8 @@
-const express = require('express')
+const express = require("express");
 const mongoose = require("mongoose");
-const bcrypt = require ("bcrypt")
+const bcrypt = require("bcrypt");
 // import * as bcrypt from "bcrypt";
-const createError = require ("http-errors")
+const createError = require("http-errors");
 // import createError from "http-errors";
 // import { create } from "ts-node";
 const router = express.Router();
@@ -45,6 +45,8 @@ router.post("/login", async (req, res, next) => {
     return res.json({
       _id: user._id,
       handle: user.handle,
+      firstName: user.firstName,
+      lastName: user.lastName,
     });
   } catch (e) {
     return next(createError(500, e));
@@ -58,7 +60,7 @@ router.post("/register", async (req, res, next) => {
       return next(createError(400, "You are already logged in."));
     }
 
-    const { handle, password, firstName,lastName} = req.body;
+    const { handle, password, firstName, lastName } = req.body;
 
     if (!handle || !password) {
       return next(createError(400, "Must provide both handle and password."));
@@ -83,7 +85,7 @@ router.post("/register", async (req, res, next) => {
       handle,
       passwordHash,
       firstName,
-      lastName
+      lastName,
     });
     console.log("Done");
 
