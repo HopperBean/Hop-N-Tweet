@@ -14,6 +14,7 @@ import ProfilePage from "../ProfilePage";
 export default function FeedPage() {
   const [tweets, setTweets] = useState([]);
   const [tweetInputValue, setTweetInputValue] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     getTweets();
@@ -39,10 +40,10 @@ export default function FeedPage() {
       await submitTweet({ text: value });
       setTweetInputValue("");
       await getTweets();
-    } catch(error) {
-      alert("Please log in to submit a tweet")
-    }
+    } catch (error) {
+      setError("Please log in to submit a tweet");
 
+    }
   }
 
   return (
@@ -50,6 +51,7 @@ export default function FeedPage() {
       <ProfilePage />
       <Paper elevation={2}>
         <form onSubmit={(evt) => submit(evt)}>
+          {error.length > 0 && <p> {error} </p>}
           <FormControl fullWidth>
             <Input
               id="tweet-input"
