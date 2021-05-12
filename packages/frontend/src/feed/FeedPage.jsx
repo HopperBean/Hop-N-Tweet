@@ -31,6 +31,7 @@ export default function FeedPage() {
     const value = tweetInputValue ? tweetInputValue.trim() : undefined;
 
     if (!value) {
+      alert("you must provide some text");
       return;
     }
 

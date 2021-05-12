@@ -1,28 +1,32 @@
 // import * as express from "express";
-const express = require ("express")
+const express = require("express");
 const mongoose = require("mongoose");
-const createError = require ("http-errors")
+const createError = require("http-errors");
 // import createError from "http-errors";
-const requireAuth = require ("../middleware/requireAuth")
+const requireAuth = require("../middleware/requireAuth");
 // import requireAuth from "../middleware/requireAuth";
 const router = express.Router();
 
 // create
 router.post("/", requireAuth, async (req, res, next) => {
-  const { text } = req.body;
+  try {
+    const { text } = req.body;
 
-  if (!text) {
-    return next(createError(400, "You must provide text."));
+    if (!text) {
+      return next(createError(401, "You must provide text."));
+    }
+
+    const Post = mongoose.model("Post");
+    const post = await Post.create({
+      text,
+      // @ts-ignore
+      user: req.session.userId,
+    });
+
+    return res.json(post);
+  } catch (error) {
+    console.error("CAUGHT YOU>>>>>", error);
   }
-
-  const Post = mongoose.model("Post");
-  const post = await Post.create({
-    text,
-    // @ts-ignore
-    user: req.session.userId,
-  });
-
-  return res.json(post);
 });
 
 // list

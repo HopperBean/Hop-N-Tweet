@@ -20,6 +20,5 @@ export function post(url, body) {
   if (body) {
     opts.body = JSON.stringify(body);
   }
-
   return fetch(root + url, opts).then((response) => response.json());
 }
