@@ -1,10 +1,7 @@
-// import * as express from "express";
 const express = require("express");
 const mongoose = require("mongoose");
 const createError = require("http-errors");
-// import createError from "http-errors";
 const requireAuth = require("../middleware/requireAuth");
-// import requireAuth from "../middleware/requireAuth";
 const router = express.Router();
 
 // create
