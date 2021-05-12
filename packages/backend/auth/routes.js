@@ -102,7 +102,7 @@ router.get("/check", async (req, res, next) => {
   const User = mongoose.model("User");
   const user = userId && (await User.findOne({ _id: userId }).exec());
 
-  console.log(user, userId);
+  //console.log(user, userId);
 
   if (!userId || !user) {
     return res.json({
