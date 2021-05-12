@@ -70,7 +70,7 @@ export default function LoginPage() {
               <FormControl fullWidth>
                 <Input
                   id="firstName"
-                  placeholder="firstName"
+                  placeholder="First Name"
                   value={firstName}
                   onChange={(evt) => setFirstName(evt.target.value)}
                 />
@@ -78,7 +78,7 @@ export default function LoginPage() {
               <FormControl fullWidth>
                 <Input
                   id="lastName"
-                  placeholder="lastName"
+                  placeholder="Last Name"
                   value={lastName}
                   onChange={(evt) => setLastName(evt.target.value)}
                 />

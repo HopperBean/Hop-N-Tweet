@@ -12,9 +12,11 @@ import LogoutPage from "./auth/LogoutPage";
 import FeedPage from "./feed/FeedPage";
 import NotFoundPage from "./layout/NotFoundPage";
 import StateProvider, { StateContext } from "./StateProvider";
+import ProfilePage from "./ProfilePage"
 import { checkSession } from "./auth/authApi";
 
 export default function App() {
+  
   return (
     <StateProvider>
       <AppBar position="static" style={{ marginBottom: 24 }}>
@@ -37,6 +39,9 @@ export default function App() {
                 <Switch>
                   <Route path="/" exact>
                     <FeedPage />
+                  </Route>
+                  <Route path="/profile" exact>
+                    <ProfilePage />
                   </Route>
                   <Route path="/auth/logout">
                     <LogoutPage />
