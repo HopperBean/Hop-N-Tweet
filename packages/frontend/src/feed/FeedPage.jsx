@@ -35,10 +35,14 @@ export default function FeedPage() {
       alert("you must provide some text");
       return;
     }
+    try {
+      await submitTweet({ text: value });
+      setTweetInputValue("");
+      await getTweets();
+    } catch(error) {
+      alert("Please log in to submit a tweet")
+    }
 
-    await submitTweet({ text: value });
-    setTweetInputValue("");
-    await getTweets();
   }
 
   return (
