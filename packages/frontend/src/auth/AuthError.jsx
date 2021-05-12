@@ -32,7 +32,8 @@ export default function AuthError(props) {
     <div className={classes.root}>
       <Snackbar open={props.open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error">
-          Authorization error!
+          {props.errorMsg}
+
         </Alert>
       </Snackbar>
     </div>

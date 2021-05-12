@@ -10,11 +10,12 @@ import Box from "@material-ui/core/Box";
 import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { getFeed, submitTweet } from "./feedApi";
 import ProfilePage from "../ProfilePage";
-
+import AuthError from "../auth/AuthError";
 export default function FeedPage() {
   const [tweets, setTweets] = useState([]);
   const [tweetInputValue, setTweetInputValue] = useState("");
-  const [error, setError] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     getTweets();
@@ -41,8 +42,8 @@ export default function FeedPage() {
       setTweetInputValue("");
       await getTweets();
     } catch (error) {
-      setError("Please log in to submit a tweet");
-
+      setErrorMsg("Please log in to submit a tweet.");
+      setError(true)
     }
   }
 
@@ -51,7 +52,7 @@ export default function FeedPage() {
       <ProfilePage />
       <Paper elevation={2}>
         <form onSubmit={(evt) => submit(evt)}>
-          {error.length > 0 && <p> {error} </p>}
+          {/* {error.length > 0 && <p> {error} </p>} */}
           <FormControl fullWidth>
             <Input
               id="tweet-input"
@@ -73,6 +74,7 @@ export default function FeedPage() {
           </Paper>
         </Box>
       ))}
+      <AuthError errorMsg={errorMsg} open={error} setOpen={setError} />
     </Grid>
   );
 }

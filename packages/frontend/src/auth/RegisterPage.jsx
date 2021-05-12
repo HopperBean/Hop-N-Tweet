@@ -16,6 +16,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const { state, dispatch } = useContext(StateContext);
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -29,6 +30,7 @@ export default function LoginPage() {
     } catch (e) {
       // console.log(e);
       // alert("Failed to login.");
+      setErrorMsg("This handle is already in use. Please register with another handle.");
       setError(true);
     }
   }
@@ -95,7 +97,7 @@ export default function LoginPage() {
               </FormControl>
             </form>
             Already have an account? <Link to="/auth/login">Sign in</Link>.
-            <AuthError open={error} setOpen={setError} />
+            <AuthError errorMsg={errorMsg} open={error} setOpen={setError} />
           </Grid>
         </Grid>
       </Grid>
