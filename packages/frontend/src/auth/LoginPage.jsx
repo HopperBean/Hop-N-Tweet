@@ -10,6 +10,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const { state, dispatch } = useContext(StateContext);
+    const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -23,6 +24,7 @@ export default function LoginPage() {
     } catch (e) {
       // console.log(e);
       // alert("Failed to login.");
+      setErrorMsg("Failed to log in, please try again.");
       setError(true);
     }
   }
@@ -37,7 +39,7 @@ export default function LoginPage() {
         <Grid container>
           <Grid item xs={2}></Grid>
           <Grid item xs={10}>
-            <Typography variant="h4">Welcome to Twitterbean!</Typography>
+            <Typography variant="h4">Welcome to Hop-N-Tweet!</Typography>
             <Typography variant="h6">Make new friends!</Typography>
             <Typography variant="h6">Talk about things!</Typography>
             <Typography variant="h6">Be part of a community!</Typography>
@@ -73,7 +75,7 @@ export default function LoginPage() {
               </FormControl>
             </form>
             Don't have an account? <Link to="/auth/register">Sign Up</Link>.
-            <AuthError open={error} setOpen={setError} />
+            <AuthError errorMsg={errorMsg} open={error} setOpen={setError} />
           </Grid>
         </Grid>
       </Grid>
