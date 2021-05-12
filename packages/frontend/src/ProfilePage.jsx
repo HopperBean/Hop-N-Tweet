@@ -1,5 +1,5 @@
 import React from "react";
-import { StateContext, ContextType } from "../StateProvider";
+import { StateContext, ContextType } from "./StateProvider";
 import { Link, Redirect } from "react-router-dom";
 
 const ProfilePage = (props) => {
