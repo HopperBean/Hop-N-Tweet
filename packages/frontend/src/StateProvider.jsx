@@ -42,7 +42,7 @@ export default function StateProvider(props) {
     });
   }, []);
 
-  console.log("STATE", state);
+ // console.log("STATE", state);
 
   return (
     <StateContext.Provider value={{ state, dispatch }}>
