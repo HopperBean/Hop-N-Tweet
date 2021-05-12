@@ -16,7 +16,6 @@ const app = express();
 app.use(express.static("public"));
 
 // connect to the DB
-//yo!
 mongoose.connect(db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

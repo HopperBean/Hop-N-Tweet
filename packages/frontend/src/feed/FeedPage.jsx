@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { getFeed, submitTweet } from "./feedApi";
+import ProfilePage from "../ProfilePage";
 
 export default function FeedPage() {
   const [tweets, setTweets] = useState([]);
@@ -42,6 +43,7 @@ export default function FeedPage() {
 
   return (
     <Grid item xs={10}>
+      <ProfilePage />
       <Paper elevation={2}>
         <form onSubmit={(evt) => submit(evt)}>
           <FormControl fullWidth>

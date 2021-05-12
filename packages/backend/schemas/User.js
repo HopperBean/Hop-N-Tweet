@@ -1,13 +1,12 @@
-const { Schema, Types } = require("mongoose")
-// import * as mongoose from "mongoose";
-const mongoose = require ("mongoose")
+const { Schema, Types } = require("mongoose");
+const mongoose = require("mongoose");
 
 const User = new Schema({
   firstName: String,
   lastName: String,
-  img:{
+  img: {
     data: Buffer,
-    contentType: String
+    contentType: String,
   },
   bio: String,
   handle: String,
