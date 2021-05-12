@@ -21,7 +21,7 @@ export default function LoginPage() {
     evt.preventDefault();
 
     try {
-      const user = await register(handle,firstName,lastName, password);
+      const user = await register(handle, firstName, lastName, password);
       dispatch({
         type: "setUser",
         payload: user,
