@@ -7,9 +7,11 @@ import {
 } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import { styled } from "@material-ui/core/styles";
 import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { getFeed, submitTweet } from "./feedApi";
 import AuthError from "../auth/AuthError";
+
 export default function FeedPage() {
   const [tweets, setTweets] = useState([]);
   const [tweetInputValue, setTweetInputValue] = useState("");
@@ -42,13 +44,12 @@ export default function FeedPage() {
       await getTweets();
     } catch (error) {
       setErrorMsg("Please log in to submit a tweet.");
-      setError(true)
+      setError(true);
     }
   }
 
   return (
     <Grid item xs={10}>
-
       <Paper elevation={2}>
         <form onSubmit={(evt) => submit(evt)}>
           {/* {error.length > 0 && <p> {error} </p>} */}

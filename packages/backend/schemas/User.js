@@ -7,11 +7,13 @@ const User = new Schema({
   email: String,
   img: {
     type: String,
-    default: "https://www.pngkit.com/png/detail/860-8603579_free-bird-clipart-cute-bird-svg.png",
+    default:
+      "https://www.pngkit.com/png/detail/860-8603579_free-bird-clipart-cute-bird-svg.png",
   },
   bio: {
     type: String,
-  default:""},
+    default: "I love ice cream and cookies!",
+  },
   handle: String,
   passwordHash: { type: String, select: false },
   posts: [{ type: Types.ObjectId, ref: "Post" }],
