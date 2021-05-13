@@ -12,15 +12,20 @@ import LogoutPage from "./auth/LogoutPage";
 import FeedPage from "./feed/FeedPage";
 import NotFoundPage from "./layout/NotFoundPage";
 import StateProvider, { StateContext } from "./StateProvider";
-import ProfilePage from "./ProfilePage"
+import ProfilePage from "./ProfilePage";
 import { checkSession } from "./auth/authApi";
 
 export default function App() {
-  
   return (
     <StateProvider>
-      <AppBar position="static" style={{ marginBottom: 24 }}>
-        <Typography variant="h6" style={{ padding: 12 }}>
+      <AppBar
+        position="static"
+        style={{
+          marginBottom: 24,
+          background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+        }}
+      >
+        <Typography variant="h4" style={{ padding: 12 }}>
           Hop-N-Tweet
         </Typography>
       </AppBar>
