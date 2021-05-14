@@ -1,6 +1,4 @@
 const createError = require("http-errors");
-// import createError from "http-errors";
-// import { RequestHandler } from "express";
 
 const mongoose = require("mongoose");
 

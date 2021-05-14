@@ -1,6 +1,18 @@
-# Social Media Site Hackathon - Starter Pack
+# Hop-n-tweet - overview
 
-This starter pack is for the "How to build a social media site" hackathon by Mintbean.
+This project was built in a week-long sprint as part of the "How to build a social media site" hackathon by Mintbean.
+
+This is a simple twitter-like application that allows logged-in users to exchange messages on a shared dashboard.
+
+In this project, we focused on implementing helpful error handling functionality on both the front and the back end.
+
+An informative error message will pop up in the following cases:
+
+1. user tries to submit an empty tweet
+2. user tries to submit a tweet without being logged in
+3. user enters wrong handle/password combination
+4. user tries to register but hasn't filled out all fields of the registration form
+5. user tries to register with a handle that is already in use
 
 ## Prerequisites
 
@@ -13,9 +25,9 @@ yarn install # or npm install
 yarn dev # or npm run dev
 ```
 
-## Deploying
+## Setting up database
 
-First, have mongodb running. The application will create a `Twitterbean` collection for itself on bootup.
+In order for the project to work in development mode, you need to have mongodb running on a local server. The application will create a `Twitterbean` collection for itself on bootup.
 
 The application can be deployed to port 3000. Changing the port requires a bit of coding.
 
@@ -60,20 +72,17 @@ We're using the [useReducer](https://alligator.io/react/usereducer/) hook to man
 
 We're using Express and Mongoose/MongoDB on the backend. All code is custom-built, and we're using as few pieces as possible in order to maximize learning potential from this project.
 
-## Known Issues You Can Tackle First
+## Preview
 
-- You will have to figure out deployment.
-- Error handling is currently being done via `alert` boxes. It should be done via actual popup modals built in JavaScript. See [Snackbar Component](https://material-ui.com/components/snackbars/)
-- Posting a tweet will fail silently, with a console error, if you are not logged in.
-- Some of the code is not very DRY, especially between Register and Login.
-- The project is half JS, half TS. It should be one or the other, but having both just causes confusion and issues.
-- The `req.sessions.user` type needs `//@ts-ignore` in order to work, because the global declaration in `types.d.ts` is not set correctly. (If you don't understand what this means, that's fine. Just be mindful that it always needs a `//@ts-ignore` on the preceding line.)
+Dashboard
+<img src="images/Dashboard.png">
 
-## Suggested Features
+Register page
+<img src="images/Register.png">
 
-- Profile page
-- Ability to set your photo, bio and fullname
-- Ability to @tweet at people
-- Hashtags
-- Tweet search
-- News feed
+Profile page
+<img src="images/ProfilePage.png">
+
+## Link to deployed application
+
+https://hop-n-tweet.herokuapp.com/

@@ -30,12 +30,11 @@ export default function FeedPage() {
   async function submit(evt) {
     evt.preventDefault();
 
-    //optional chaining syntax
-    //tweetInputValue.?trim()
     const value = tweetInputValue ? tweetInputValue.trim() : undefined;
 
     if (!value) {
-      alert("you must provide some text");
+      setErrorMsg("You must provide some text");
+      setError(true);
       return;
     }
     try {
@@ -52,7 +51,6 @@ export default function FeedPage() {
     <Grid item xs={10}>
       <Paper elevation={2}>
         <form onSubmit={(evt) => submit(evt)}>
-          {/* {error.length > 0 && <p> {error} </p>} */}
           <FormControl fullWidth>
             <Input
               id="tweet-input"

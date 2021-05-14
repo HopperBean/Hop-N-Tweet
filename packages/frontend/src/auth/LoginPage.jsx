@@ -10,7 +10,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const { state, dispatch } = useContext(StateContext);
-    const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -22,8 +22,6 @@ export default function LoginPage() {
         payload: user,
       });
     } catch (e) {
-      // console.log(e);
-      // alert("Failed to login.");
       setErrorMsg("Failed to log in, please try again.");
       setError(true);
     }

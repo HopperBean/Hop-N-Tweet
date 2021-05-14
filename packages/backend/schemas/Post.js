@@ -1,6 +1,5 @@
-const { Schema, Types } = require("mongoose")
-const mongoose = require ("mongoose")
-// import * as mongoose from "mongoose";
+const { Schema, Types } = require("mongoose");
+const mongoose = require("mongoose");
 
 const Post = new Schema({
   user: {

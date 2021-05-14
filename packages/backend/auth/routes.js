@@ -1,10 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-// import * as bcrypt from "bcrypt";
 const createError = require("http-errors");
-// import createError from "http-errors";
-// import { create } from "ts-node";
 const router = express.Router();
 
 router.post("/login", async (req, res, next) => {
@@ -47,9 +44,6 @@ router.post("/login", async (req, res, next) => {
       handle: user.handle,
       firstName: user.firstName,
       lastName: user.lastName,
-      email: user.email,
-      image: user.img,
-      bio: user.bio
     });
   } catch (e) {
     return next(createError(500, e));
@@ -106,8 +100,6 @@ router.get("/check", async (req, res, next) => {
   const { userId } = req.session;
   const User = mongoose.model("User");
   const user = userId && (await User.findOne({ _id: userId }).exec());
-
-  //console.log(user, userId);
 
   if (!userId || !user) {
     return res.json({
