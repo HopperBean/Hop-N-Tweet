@@ -101,6 +101,33 @@ router.post("/register", async (req, res, next) => {
   }
 });
 
+// Update Profile
+router.put("/updateProfile", async (req, res, next) => {
+  try {
+    const {handle, firstName, lastName, bio, img} = req.body
+    const { userId } = req.session;
+    const User = mongoose.model("User");
+    const user = userId && (await User.findOne({ _id: userId }).exec());
+    user.update({
+      handle,
+      firstName,
+      lastName,
+      bio,
+      img
+    })
+   await user.save()
+   res.sendStatus(204)
+
+  } catch (error) {
+    console.log(error)
+    res.status(422).send({"message":"couldn't update user"})
+  }
+})
+
+
+
+
+
 router.get("/check", async (req, res, next) => {
   // @ts-ignore
   const { userId } = req.session;
